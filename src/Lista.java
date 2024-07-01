@@ -15,24 +15,24 @@ public class Lista {
     }
 
     public static NodoLista combinarListas(NodoLista[] listas){
-        PriorityQueue<NodoLista> minHeap = new PriorityQueue<>((a, b) -> a.valor - b.valor);
+        PriorityQueue<NodoLista> min = new PriorityQueue<>((a, b) -> a.valor - b.valor);
 
         for(NodoLista nodo : listas){
             if(nodo != null){
-                minHeap.offer(nodo);
+                min.offer(nodo);
             }
         }
 
         NodoLista nodoTemporal = new NodoLista(-1);
         NodoLista actual = nodoTemporal;
 
-        while(!minHeap.isEmpty()){
-            NodoLista menorValor = minHeap.poll();
+        while(!min.isEmpty()){
+            NodoLista menorValor = min.poll();
             actual.proximo = menorValor;
             actual = actual.proximo;
 
             if(menorValor.proximo != null){
-                minHeap.offer(menorValor.proximo);
+                min.offer(menorValor.proximo);
             }
         }
         return nodoTemporal.proximo;

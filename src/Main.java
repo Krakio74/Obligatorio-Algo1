@@ -10,7 +10,7 @@ public class Main {
         System.out.println("El agua almacenada es: " + Funciones.AguaAlmacenada(columnas));
 
         //Ejecrcicio 3
-        int[][] costos = {{1, 3, 1},{1, 5, 1}, {4, 2, 1}};
+        int[][] costos = {{1,2,3}, {5,4,3}, {7,6,5}};//{{1, 3, 1},{1, 5, 1}, {4, 2, 1}};
         System.out.println("El costo minimo es: " + Funciones.CostoMinimo(costos));
 
         //Ejercicio4
@@ -28,7 +28,12 @@ public class Main {
                 {0,0,0,0,0,0,0,0,0,1}
 
         };
-        System.out.println("Número de islas: " + Funciones.ContarIslas(islas));
+        int[][] islas2 = {
+                {0,1,1,2},
+                {1,0,0,0},
+                {0,0,0,1}
+        };
+        System.out.println("Número de islas: " + Funciones.ContarIslas(islas2));
 
         //Ejercicio 5
         int[][] matriz = {

@@ -82,7 +82,7 @@ public class Funciones {
         return costo[m - 1][n - 1];
     }
     public static int ContarIslas(int[][] islas) {
-        if (islas == null || islas.length == 0) {
+        if (!IslaValida(islas)) {
             return 0;
         }
 
@@ -100,6 +100,22 @@ public class Funciones {
         }
 
         return numIslas;
+    }
+    public static Boolean IslaValida(int[][] islas){
+        int filas = islas.length;
+        int columnas = islas[0].length;
+
+        if(islas == null || islas.length == 0){
+            return false;
+        }
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                if (islas[i][j] != 1 && islas[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
     private static void marcarIsla(int[][] islas, int i, int j) {
         int filas = islas.length;
@@ -132,7 +148,6 @@ public class Funciones {
         boolean[] filaCero = new boolean[m];
         boolean[] columnaCero = new boolean[n];
 
-        // Identificar filas y columnas que deben ser cero
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (islas[i][j] == 0) {
